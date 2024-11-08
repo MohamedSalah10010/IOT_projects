@@ -1,0 +1,79 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  
+  <title>IOT LAB</title>
+</head>
+<body>
+  <div id="div-1">
+    <h1 style="font-weight: bolder; text-align: center; position: relative">
+      IOT LAB
+    </h1>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <span style="color: blue; font-weight: bolder">0</span>
+    <input
+      type="range"
+      id="light"
+      style="width: 80%"
+      value="0"
+      min="0"
+      max="255"
+      step="1"
+    />
+    <span style="color: blue; font-weight: bolder">255</span>
+    <br /><br /><br /><br />
+    <p id="p1">
+      LIGHT INTENSITY=
+      <output id="txt" value="" style="font-weight: bolder; color: #0080ff"
+        >0</output
+      >
+    </p>
+  </div>
+</body>
+<style>
+  #div-1 {
+    text-align: center;
+    margin: 40px auto;
+    width: 800px;
+    height: 800px;
+    border: 5px double;
+  }
+  #p1 {
+    color: red;
+    font-weight: bolder;
+    font-style: oblique;
+  }
+</style>
+<div id="div-2">
+
+  <script>
+    var HOST = location.origin.replace(/^http/, "ws");// URL
+    var ws = new WebSocket(HOST);// object of the class websocket
+
+    var light_input = document.getElementById("light");
+    light_input.oninput = function () {
+      ws.send(this.value);
+    };
+    var light_intensity = 0;  
+    
+    // ws.on("connection")
+    ws.onopen = function () {
+      console.log("Connected to server");
+    };
+    // ws.on("message")
+    ws.onmessage = function (event) {
+      light_intensity = parseInt(event.data);
+      console.log(event.data);
+      document.getElementById("light").value = light_intensity;
+      document.getElementById("txt").value = light_intensity;
+    };
+    ws.onclose = function () {
+      console.log("Disconnected from server!");
+    };
+    ws.onerror = function () {
+      console.log("There is an Error!");
+    };
+  </script>
+</div>

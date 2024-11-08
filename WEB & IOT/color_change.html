@@ -1,0 +1,100 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IOT TASK</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="div-1">
+      <h1 style="color: rgb(70, 10, 236)">Choose your color</h1>
+      <img src="Choose your color.jpg" width="400px" />
+      <br />
+      <br />
+      <br /><br />
+      <label2 style="color: red"> RED: </label2>
+      0<input
+        type="range"
+        id="red_range"
+        value="0"
+        min="0"
+        max="255"
+        step="1"
+        oninput="update_red(this.value)"
+      />
+      255
+      <p><output id="red_txt" value="">0</output></p>
+
+      <label2 style="color: green"> GREEN: </label2>
+      0<input
+        type="range"
+        id="green_range"
+        value="0"
+        min="0"
+        max="255"
+        step="1"
+        oninput="update_green(this.value)"
+      />
+      255
+      <p><output id="green_txt" value="">0</output></p>
+      <label2 style="color: blue"> BLUE: </label2>
+      0<input
+        type="range"
+        id="blue_range"
+        value="0"
+        min="0"
+        max="255"
+        step="1"
+        oninput="update_blue(this.value)"
+      />
+      255
+      <p><output id="blue_txt" value="">0</output></p>
+      <br />
+      <br />
+      <br /><br />
+      <div id="div-2">
+        <button id="btn">Color</button><br />
+        <br />
+        <button id="btn_change" type="button" onclick="change()">
+          CHANGE THE BACKGROUND
+        </button>
+      </div>
+    </div>
+    <script src="color_change.js"></script>
+    <!--external css is by using <link rel="stylesheet" href="filename.css">--> 
+    
+  </body>
+
+  <style>
+    #div-1 {
+      text-align: center;
+      margin: 40px auto;
+      width: 800px;
+      height: 800;
+      border: 5px double;
+    }
+    #btn {
+      width: 150px;
+      height: 50px;
+      color: rgb(232, 136, 10);
+      border-radius: 10px;
+    }
+    #btn_change {
+      width: 150px;
+      height: 50px;
+      color: rgb(232, 136, 10);
+      border-radius: 10px;
+    }
+    /*
+    body{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    h1{
+        opacity:0.5;
+    }
+    h1:hover{opacity: 1;}
+    */
+  </style>
+</html>
